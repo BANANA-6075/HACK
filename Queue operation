@@ -1,0 +1,156 @@
+#include<iostream.h>
+
+#include<conio.h>
+
+#include<process.h>
+
+#define size 10
+
+class queue
+
+{
+
+int q[size], front, rear;
+
+public:
+queue()
+
+{
+
+front-rear=-1;
+
+}
+
+void insert(int);
+
+void del();
+
+void display();
+
+};
+
+void queue:: insert(int item)
+
+if(rear==size-1)
+
+{ rear=0; rear++;
+
+else
+
+if (front ==rear)
+
+{
+
+cout<<"queue overflow"<<endl;
+
+exit(1);
+
+}
+
+q[rear]=item;
+
+if(front==-1)
+
+front++;
+
+}
+
+void queue::del()
+
+{
+
+if(front<0)
+
+{
+
+cout<<"queue underflow"<<endl;
+
+exit(1);
+
+}
+
+cout<<"\n deleted element:"<<q[front];
+
+if(front--rear)
+
+front-rear=-1;
+
+else
+
+{
+if(front==size-1) front=0; else front++; 1
+
+} void queue::display()
+
+{ int position; if(front>=0)
+
+{ cout<<"\n total size of queue:"<<size; cout<<"\n queue after operation\n\n"; if (front<=rear)
+
+{ for(position=front;position<=rear;position++) cout<<q[position]<<" ";
+
+}
+
+}
+
+else
+
+{ for(position=front; position<size; position++) cout<<q[position]<<""; for(position=0;position<=rear; position++) cout<<q[position]<<" "; }
+
+cout<<"\n front="<<front<<"rear="<<rear; }
+
+void main()
+
+{
+
+clrscr(); int item,ch,n; queue q;
+getch();
+
+89
+
+do
+
+{
+
+cout<<"enter your choice: 1:insert 2:delete 3:display 4:exit"<<endl;
+
+cin>>ch;
+
+switch(ch)
+
+{
+
+case 1:
+
+cout<<"enter the item "<<endl;
+
+cin>>item;
+
+q.insert(item);
+
+break;
+
+case 2:
+
+q.del();
+
+break;
+
+case 3:
+
+q.display();
+
+break;
+
+case 4:
+
+exit(0); break;
+
+default:
+
+cout<<"invalid input";
+
+}
+
+}while(1);
+
+}
