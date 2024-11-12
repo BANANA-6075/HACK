@@ -1,0 +1,39 @@
+//10. Write a program for binary search
+
+#include<iostream.h>
+#include<conio.h>
+int bsearch(int[],int,int);
+void main()
+{
+int a[50],item,n,i,index;
+clrscr();
+cout<<"enter the desired array size";
+cin>>n;
+cout<<"enter the array element";
+for(i=0;i<n;i++)
+cin>>a[i];
+cout<<"enter the element to be searched";
+cin>>item;
+index=bsearch(a,n,item);
+if(index== -1)
+cout<<"search is unsuccesful";
+else
+cout<<"item found at the ex"<<index<<"position"<<index+1
+<<endl;
+getch();
+}
+int bsearch(int a[], int n,int item)
+{
+int beg=0,last=n-1;
+while(beg<=last)
+{
+int mid=int((beg+last)/2);
+if(item==a[mid])
+return mid;
+else if(item < a[mid])
+last=mid-1;
+else
+beg=mid+1;
+}
+return -1;
+}
